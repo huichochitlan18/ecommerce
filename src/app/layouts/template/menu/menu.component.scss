@@ -1,0 +1,15 @@
+.active {
+    background: #fff3e0 !important;
+    border-left: 4px solid #c43c00;
+}
+
+.mat-list-item {
+    cursor: pointer;
+    /* border-left: 4px solid transparent; */
+    transition: 0.2s all;
+    /* box-sizing: border-box; */
+}
+
+.mat-list-base {
+    padding-top: 0;
+}

@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.position-fixed {
+  // position: fixed;
+  z-index: 40;
+}
+.contenido {
+  margin-top: 65px;
+}
+.tituloProductos {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+.tituloProducto {
+  font-size: 24px !important;
+  line-height: 32px !important;
+}
+.precio {
+  font-size: 28px;
+}
+.simboloPrecio {
+  top: -0.75em;
+  font-size: 13px;
+}
+.producto {
+  border-radius: 5px;
+  border: 1px solid #eeeeee;
+}
+.input-full-width {
+  width: 100%;
+}

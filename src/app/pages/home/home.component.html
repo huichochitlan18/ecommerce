@@ -1,0 +1,37 @@
+<div class="container-xl contenido">
+  <div class="row">
+    <div class="col-md-auto col-lg-4 producto" *ngFor="let item of producto">
+      <div class="row">
+        <div class="col-4 align-self-center">
+          <img class="img-thumbnail img-responcive" [src]="item.image" />
+        </div>
+        <div class="col-8">
+          <h1 class="tituloProductos">
+            <a
+              [routerLink]="['/', item.title | slugify, item.id]"
+              queryParamsHandling="merge"
+              >{{ item.title }}</a
+            >
+          </h1>
+          <p>
+            <span>
+              <span class="simboloPrecio">$</span>
+              <span class="precio">{{ item.price }}</span>
+            </span>
+          </p>
+          <p>
+            <span>
+              <button mat-button>
+                <mat-icon> star </mat-icon>
+                {{ item.rating.rate }}
+              </button>
+            </span>
+            <span>
+              <span>Vendidos : {{ item.rating.count }}</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.image {
+  display: inline-block;
+  height: 10%;
+  padding-left: 0.8rem;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.user-panel img {
+  height: auto;
+  width: 2.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   box-shadow: 0 0 2px gray;
+  overflow: hidden;
+  margin: 1em;
+}
+.input-full-width {
+  color: black;
+  font-size: 15px;
+  width: 70%;
+  height: 55px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: white;  
+  border-radius: 5px;
+  margin-top: 3px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  height: 45px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  padding-top: 1px !important;
+}

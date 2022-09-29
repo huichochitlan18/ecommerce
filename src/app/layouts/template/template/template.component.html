@@ -1,0 +1,68 @@
+<p>template works!</p>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="over">
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+      <span>menu</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <app-menu [menu]="menu"></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-container>
+    <mat-toolbar color="primary" class="position-fixed mat-elevation-z6">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-form-field class="input-full-width" appearance="outline">
+        <input matInput type="text" [(ngModel)]="value" color="accent"/>
+        <button
+          *ngIf="value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      
+
+      <span *ngIf="this.usuario.user"></span>
+      <span class="spacer"></span>
+      <button mat-button (click)="this.usuario.signInWithFB()" *ngIf="!this.usuario.user">
+        <mat-icon>
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22,12c0-5.52-4.48-10-10-10S2,6.48,2,12c0,4.84,3.44,8.87,8,9.8V15H8v-3h2V9.5C10,7.57,11.57,6,13.5,6H16v3h-2 c-0.55,0-1,0.45-1,1v2h3v3h-3v6.95C18.05,21.45,22,17.19,22,12z"
+            />
+          </svg>
+        </mat-icon>
+        <!-- <mat-icon inline="true">account_circle</mat-icon> -->
+      </button>
+      <!-- <span *ngIf="user"><p>{{ user.name }}</p></span>   -->
+      <div *ngIf="this.usuario.user">
+        <button mat-icon-button>
+          <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+        </button>
+        <button
+          mat-button
+          aria-label="Example icon-button with a menu"
+          [matMenuTriggerFor]="menuUser"
+        >
+          {{ this.usuario.user.firstName }}
+          <mat-icon>more_vert</mat-icon>
+          <mat-menu #menuUser="matMenu">
+            <button mat-menu-item (click)="this.usuario.signOut()">
+              <span>Salir</span>
+            </button>
+          </mat-menu>
+        </button>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</mat-sidenav-container>

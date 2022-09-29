@@ -1,0 +1,136 @@
+<form [formGroup]="producto" (ngSubmit)="crearProducto()">
+  <div class="contenido">
+    <div class="container-sm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="input-full-width" appearance="standard">
+            <mat-label>Nombre</mat-label>
+            <input
+              id="nombre"
+              formControlName="nombre"
+              matInput
+              class="input-full-width"
+            />
+            <button
+              *ngIf="this.producto.value.nombre"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="this.producto.controls['nombre'].setValue('')"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="input-full-width" appearance="standard">
+            <mat-label>Stock</mat-label>
+            <input
+              id="stock"
+              formControlName="stock"
+              matInput
+              class="input-full-width"
+            />
+            <button
+              *ngIf="this.producto.value.stock"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="this.producto.controls['stock'].setValue('')"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="input-full-width" appearance="standard">
+            <mat-label>Precio</mat-label>
+            <input
+              id="precio"
+              formControlName="precio"
+              matInput
+              class="input-full-width"
+            />
+            <button
+              *ngIf="this.producto.value.precio"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="this.producto.controls['precio'].setValue('')"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <angular-editor
+          formControlName="htmlContent"
+          [config]="config"
+        ></angular-editor>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            style="display: none"
+            type="file"
+            accept="image/*"
+            name="images"
+            (change)="onFileChanged($any($event.target).files)"
+            #fileInput
+            multiple="multiple"
+          />
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="fileInput.click()"
+          >
+            Agregar Imagenes
+          </button>
+          <!-- <button
+            mat-raised-button
+            type="button"
+            color="primary"
+            (click)="onUpload()"
+          >
+            Upload!
+          </button> -->
+        </div>
+        <ng-template [ngIf]="archivos">
+          <div class="col">
+            <table>
+              <tbody>
+                <tr *ngFor="let archivo of archivos; let i = index">
+                  <td>
+                    <mat-icon
+                      (click)="eliminarArchivo(i)"
+                      aria-hidden="false"
+                      aria-label="Example home icon"
+                      fontIcon="delete"
+                      color="warn"
+                    ></mat-icon>
+                  </td>
+                  <td>{{ archivo.name }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <mat-list role="list">
+            <mat-list-option  >Item 1</mat-list-option>
+            <mat-list-option  >Item 2</mat-list-option>
+            <mat-list-option  >Item 3</mat-list-option>
+          </mat-list> -->
+          </div>
+        </ng-template>
+        <div class="col">
+          <button mat-raised-button color="primary" class="float" type="submit">
+            Guardar
+          </button>
+          <!-- <button mat-raised-button color="primary" type="submit">
+            Imagenes
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
